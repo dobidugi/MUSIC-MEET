@@ -7,7 +7,8 @@ module.exports = {
     entry: "./src/render/index.js",                            
     output: {                                           // bundled compiled 파일
         path: path.join(__dirname, "/dist"),            //__dirname : 현재 디렉토리, dist 폴더에 모든 컴파일된 하나의 번들파일을 넣을 예정
-        filename: "bundle.js"
+        filename: "bundle.js",
+        
     },
     // resolve: {
     //     extensions: ["js","jsx"]    // import할때 확장자를 안붙여줘도됨 
@@ -40,6 +41,16 @@ module.exports = {
                 test: /\.css$/i,
                 exclude: /\.module\.css$/i, // 모듈 파일 제외 설정
                 use: ["style-loader", "css-loader"],
+            },
+            // 이미지 파일 로더
+            {
+                test: /\.(png|jpe?g|gif|svg|webp)$/i,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name].[contenthash].[ext]",
+                    },
+                },
             },
         
         ],
