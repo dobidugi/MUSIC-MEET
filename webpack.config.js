@@ -2,12 +2,12 @@
 
 const path = require("path");                                        
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {                                      
     entry: "./src/render/index.js",                            
     output: {                                           // bundled compiled 파일
         path: path.join(__dirname, "/dist"),            //__dirname : 현재 디렉토리, dist 폴더에 모든 컴파일된 하나의 번들파일을 넣을 예정
-        filename: "index_bundle.js"
+        filename: "bundle.js"
     },
     // resolve: {
     //     extensions: ["js","jsx"]    // import할때 확장자를 안붙여줘도됨 
@@ -21,12 +21,7 @@ module.exports = {
                     loader: "babel-loader"				// babel loader가 파이프를 통해 js 코드를 불러옴
                 }
             },
-            // style-loader, css-loader 구성
-            {
-                test: /\.css$/i,
-                exclude: /\.module\.css$/i, // 모듈 파일 제외 설정
-                use: ["style-loader", "css-loader"],
-            },
+            
             // CSS Module ([filename].module.css)
             {
                 test: /\.module\.css$/i,
@@ -40,6 +35,12 @@ module.exports = {
                     },
                 ],
             },  
+            // style-loader, css-loader 구성
+            {
+                test: /\.css$/i,
+                exclude: /\.module\.css$/i, // 모듈 파일 제외 설정
+                use: ["style-loader", "css-loader"],
+            },
         ],
     },
     resolve: {
@@ -49,6 +50,10 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./public/index.html"              
-        })
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].[contenthash:8].css',
+            chunkFilename: 'assets/css/[name].[contenthash:8].chunk.css',
+        }),
     ]
 };

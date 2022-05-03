@@ -1,11 +1,10 @@
 {
-  "name": "webpack_react",
+  "name": "music_meet",
   "version": "1.0.0",
   "description": "MUSIC MEET",
   "main": "index.js",
   "author": "dobidugi@gmail.com",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production"
   },
@@ -23,8 +22,17 @@
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
     "style-loader": "^3.3.1",
+    "typings-for-css-modules-loader": "^1.7.0",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dobidugi/webpack-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dobidugi/webpack-react/issues"
+  },
+  "homepage": "https://github.com/dobidugi/webpack-react#readme"
 }
