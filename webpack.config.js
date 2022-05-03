@@ -2,7 +2,7 @@
 
 const path = require("path");                                        
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {                                      
     entry: "./src/render/index.js",                            
     output: {                                           // bundled compiled 파일
@@ -41,10 +41,12 @@ module.exports = {
                 exclude: /\.module\.css$/i, // 모듈 파일 제외 설정
                 use: ["style-loader", "css-loader"],
             },
+        
         ],
+        
     },
     resolve: {
-        extensions: [ '.js', '.jsx'],  // import할때 확장자를 안붙여줘도됨 
+        extensions: [ ".js", ".jsx"],  // import할때 확장자를 안붙여줘도됨 
     },
     // ...
     plugins: [
@@ -52,8 +54,8 @@ module.exports = {
             template: "./public/index.html"              
         }),
         new MiniCssExtractPlugin({
-            filename: 'assets/css/[name].[contenthash:8].css',
-            chunkFilename: 'assets/css/[name].[contenthash:8].chunk.css',
+            filename: "assets/css/[name].[contenthash:8].css",
+            chunkFilename: "assets/css/[name].[contenthash:8].chunk.css",
         }),
     ]
 };
