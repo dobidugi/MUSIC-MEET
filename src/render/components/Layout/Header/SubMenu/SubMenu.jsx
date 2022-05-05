@@ -10,7 +10,6 @@ import ThemeContext from "../../../../store/ThemeContext";
 function SubMenu() {
     const ctx = useContext(ThemeContext);
     const { theme, setDarkMode, setLightMode } = ctx;
-    console.log(theme);
     const items = [
         <LoginIcon key={null} />,
         <LogoutIcon key={null} />,
