@@ -18,9 +18,12 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,                          // .js, .jsx로 끝나는 babel이 컴파일하게 할 모든 파일
                 exclude: /node_module/,                 // node module 폴더는 babel 컴파일에서 제외
-                use:{
-                    loader: "babel-loader"				// babel loader가 파이프를 통해 js 코드를 불러옴
-                }
+                use:[
+                
+                    {
+                        loader: "babel-loader"				// babel loader가 파이프를 통해 js 코드를 불러옴
+                    }
+                ]
             },
             
             // CSS Module ([filename].module.css)
@@ -65,8 +68,7 @@ module.exports = {
             template: "./public/index.html"              
         }),
         new MiniCssExtractPlugin({
-            filename: "assets/css/[name].[contenthash:8].css",
-            chunkFilename: "assets/css/[name].[contenthash:8].chunk.css",
+            filename: "app.css",
         }),
     ]
 };

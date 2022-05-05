@@ -1,7 +1,7 @@
 import React from "react";
-import RouteMenu from "./RouteMenu";
+import RouteMenu from "./RouteMenu/RouteMenu";
 import classes from "./Header.module.css";
-import SubMenu from "./SubMenu";
+import SubMenu from "./SubMenu/SubMenu";
 function Header() {
     return (
         <header className={classes.header}>
